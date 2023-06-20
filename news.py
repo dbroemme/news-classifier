@@ -29,7 +29,7 @@ model.fit(X_train_tfidf, y_train)
 y_pred = model.predict(X_test_tfidf)
 
 # Evaluate the model
-print(model.score(X_test_tfidf, y_test))
+print("Model score: " + str(model.score(X_test_tfidf, y_test)))
 
 # Create a function to classify text as fake or real
 def classify_text(text):
@@ -44,9 +44,10 @@ def classify_text(text):
 
 
 # Open the text file in read mode
-with open("article2.txt", "r") as f:
-    # Read the text file into a variable
-    text_1 = f.read()
+with open("article_the_onion.txt", "r") as f:
+    article_text = f.read()
+    print("The Onion article: " + classify_text(article_text))
 
-# Print the text
-print(classify_text(text_1))
+with open("article_usa_today.txt", "r") as f:
+    article_text = f.read()
+    print("USA Today article: " + classify_text(article_text))
